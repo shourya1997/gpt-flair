@@ -1,0 +1,53 @@
+Arguments: 
+  /opt/homebrew/Cellar/node/19.8.1/bin/node /opt/homebrew/Cellar/yarn/1.22.19/libexec/bin/yarn.js dev
+
+PATH: 
+  /Library/Frameworks/Python.framework/Versions/3.11/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  19.8.1
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  SyntaxError: /Users/shouryasengupta/buildcamp/gpt3-writer-starter/package.json: Expected ',' or '}' after property value in JSON at position 396
+      at JSON.parse (<anonymous>)
+      at /opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (/opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:310:30)
+      at /opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "scratchpad",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "next lint"
+    },
+    "dependencies": {
+      "@emotion/react": "^11.10.5",
+      "@emotion/styled": "^11.10.5",
+      "eslint": "8.27.0",
+      "eslint-config-next": "13.0.3",
+      "framer-motion": "^6.5.1",
+      "next/head": 
+      "next": "^13.3.0",
+      "openai": "^3.1.0",
+      "react": "18.2.0",
+      "react-dom": "18.2.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
