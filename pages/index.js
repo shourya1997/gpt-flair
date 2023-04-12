@@ -53,24 +53,24 @@ const Home = () => {
     //   obj = {input: input, tonalities: selectedTonality};
 
     // }
-
-    setIsGenerating(true);
-    const response = await fetch('/api/generate', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify( {input} ),
-    });
-    const data = await response.json();
-    // const { baseChoice, finalChoice } = data;
-    const { baseChoice } = data;
-    setOutput(
-      // `Song Titles:${finalChoice.text}\n\nLyrics:\n${input}${baseChoice.text}`
-      `Your Flair:\n${baseChoice.text}`
-    );
-
-    setIsGenerating(false);
+    if (input.length > 0){
+      setIsGenerating(true);
+      const response = await fetch('/api/generate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify( {input} ),
+      });
+      const data = await response.json();
+      // const { baseChoice, finalChoice } = data;
+      const { baseChoice } = data;
+      setOutput(
+        // `Song Titles:${finalChoice.text}\n\nLyrics:\n${input}${baseChoice.text}`
+        `Your Flair:\n${baseChoice.text}`
+      );
+      setIsGenerating(false);
+    }
   }
 
   useEffect(() => {
