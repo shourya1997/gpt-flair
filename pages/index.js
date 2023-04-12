@@ -53,7 +53,7 @@ const Home = () => {
     //   obj = {input: input, tonalities: selectedTonality};
 
     // }
-    if (input.length > 0){
+    if (input.length > 0 && selectedTonality.length > 1){
       setIsGenerating(true);
       const response = await fetch('/api/generate', {
         method: 'POST',
