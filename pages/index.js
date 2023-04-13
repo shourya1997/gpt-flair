@@ -3,7 +3,8 @@ import classnames from 'classnames'
 import Image from 'next/image';
 import buildspaceLogo from '../assets/buildspace-logo.png';
 
-const tonalityOptions = ['happy', 'sad', 'witty', 'desperate', 'covincing']
+
+const tonalityOptions = ['Witty', 'Persuasive', 'Desperate', 'Metaphorical', 'Conversational', 'Punchy', 'Sarcastic', 'Inspirational', 'Dramatic', 'Nostalgic', 'Urgent', 'Authoritative','Cynical', 'Humorous']
 
 const Home = () => {
   const [input, setInput] = useState('');
@@ -43,34 +44,29 @@ const Home = () => {
   }
 
   const generateAction = async () => {
-    console.log('sdasda')
     if (isGenerating) return;
 
     if(selectedTonality.length == 0){
       alert("You have to choose atleast 1")
     }
-    // if (input) && (selectedTonality.length > 0){
-    //   obj = {input: input, tonalities: selectedTonality};
-
-    // }
-    if (input.length > 0 && selectedTonality.length > 1){
+    if (input && selectedTonality.length > 0 && selectedTonality.length < 4){
       setIsGenerating(true);
       const response = await fetch('/api/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify( {input} ),
+        body: JSON.stringify( {input, tonalities: selectedTonality} ),
       });
       const data = await response.json();
-      // const { baseChoice, finalChoice } = data;
       const { baseChoice } = data;
       setOutput(
-        // `Song Titles:${finalChoice.text}\n\nLyrics:\n${input}${baseChoice.text}`
         `Your Flair:\n${baseChoice.text}`
       );
+
       setIsGenerating(false);
     }
+    
   }
 
   useEffect(() => {
