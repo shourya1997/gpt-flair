@@ -61,7 +61,7 @@ const Home = () => {
       const data = await response.json();
       const { baseChoice } = data;
       setOutput(
-        `Your Flair:\n${baseChoice.text}`
+        `\n${baseChoice.text}`
       );
 
       setIsGenerating(false);
@@ -108,12 +108,12 @@ const Home = () => {
         <div className="prompt-container">
           <textarea className="prompt-box" value={input} onChange={onChange} />
           <div className="prompt-buttons">
-            <div className="key-stroke">
+            {/* <div className="key-stroke">
               <p>cmd/ctrl + enter</p>
-            </div>
-            <div className="or">
+            </div> */}
+            {/* <div className="or">
               <p>OR</p>
-            </div>
+            </div> */}
             <button
               className={
                 isGenerating ? 'generate-button loading' : 'generate-button'
@@ -130,7 +130,7 @@ const Home = () => {
           <div className="output">
             <div className="output-header-container">
               <div className="output-header">
-                <h3>Output</h3>
+                <h3>Response</h3>
               </div>
             </div>
             <div className="output-content">
