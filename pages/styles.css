@@ -10,7 +10,7 @@ body {
     display: flex;
     place-content: center flex-start;
     align-items: center;
-    background-color: rgb(0, 0, 0);
+    background-color: #15141c;
     flex-flow: column nowrap;
     gap: 10px;
     height: 100vh;
@@ -59,7 +59,7 @@ body {
 }
 
 .header-title h1:last-child {
-    color: rgb(255, 79, 18)
+    color: white
 }
 
 .header-subtitle h2 {
@@ -67,7 +67,7 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: 1.4em;
-    color: rgba(255, 255, 255, 0.75);
+    color: #ffffffa8;
 }
 
 .prompt-container {
@@ -128,7 +128,7 @@ body {
     display: flex;
     place-content: center;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     flex: 0 0 auto;
     flex-flow: row nowrap;
     gap: 12px;
@@ -173,7 +173,7 @@ body {
 .generate-button {
     place-content: flex-start;
     align-items: flex-start;
-    background-color: rgb(255, 79, 18);
+    background-color: #fa9048;
     border-radius: 100px;
     display: flex;
     flex: 0 0 auto;
@@ -324,7 +324,7 @@ body {
 .output-content p {
     text-align: center;
     white-space: pre-line;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 1);
 }
 
 @media (min-width: 810px) and (max-width: 1199px) {
@@ -422,13 +422,14 @@ body {
 .tonality-btn {
     margin: .5rem;
     background: black;
-    color: white;
-    border: 1px solid white;
+    color: #ffffffa8;
+    border: 1px solid #fa9048;
     padding: .5rem .8rem;
     border-radius: 1rem;
 }
 
 .tonality-btn.active {
-    background: white;
-    color: black;
+    background: #fa9048;
+    color: white;
+    opacity: 85%;
 }
