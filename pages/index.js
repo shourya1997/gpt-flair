@@ -90,10 +90,10 @@ const Home = () => {
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>Tone Genie</h1>
+            <h1>ToneGenie</h1>
           </div>
           <div className="header-subtitle">
-            <h2>Add Flair to Your Words</h2>
+            <h2>Find your Voice</h2>
           </div>
           <div className="tonality-wrapper">
             {tonalityOptions.map(tone => 
