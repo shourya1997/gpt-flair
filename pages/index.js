@@ -61,7 +61,7 @@ const Home = () => {
       const data = await response.json();
       const { baseChoice } = data;
       setOutput(
-        `Your Flair:\n${baseChoice.text}`
+        `\n${baseChoice.text}`
       );
 
       setIsGenerating(false);
@@ -130,7 +130,7 @@ const Home = () => {
           <div className="output">
             <div className="output-header-container">
               <div className="output-header">
-                <h3>Output</h3>
+                <h3>Response</h3>
               </div>
             </div>
             <div className="output-content">
