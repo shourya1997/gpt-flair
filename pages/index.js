@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import classnames from 'classnames'
 import Image from 'next/image';
 import buildspaceLogo from '../assets/buildspace-logo.png';
+import AuthComponent from './components';
 
 
 const tonalityOptions = ['Witty', 'Persuasive', 'Desperate', 'Metaphorical', 'Conversational', 'Punchy', 'Sarcastic', 'Inspirational', 'Dramatic', 'Nostalgic', 'Urgent', 'Authoritative','Cynical', 'Humorous']
@@ -91,6 +92,7 @@ const Home = () => {
         <div className="header">
           <div className="header-title">
             <h1>ToneGenie</h1>
+            <AuthComponent />
           </div>
           <div className="header-subtitle">
             <h2>Find your Voice</h2>
