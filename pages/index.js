@@ -4,16 +4,13 @@ import Image from 'next/image';
 import buildspaceLogo from '../assets/buildspace-logo.png';
 import AuthComponent from './components';
 
-
 const tonalityOptions = ['Witty', 'Persuasive', 'Desperate', 'Metaphorical', 'Conversational', 'Punchy', 'Sarcastic', 'Inspirational', 'Dramatic', 'Nostalgic', 'Urgent', 'Authoritative','Cynical', 'Humorous']
 
 const Home = () => {
   const [input, setInput] = useState('');
   const [selectedTonality, setTonality] = useState([])
-  console.log(selectedTonality)
   const [output, setOutput] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
-
   
   const onChange = (event) => {
     console.log(event.target.value)
@@ -50,6 +47,7 @@ const Home = () => {
     if(selectedTonality.length == 0){
       alert("You have to choose atleast 1")
     }
+
     if (input && selectedTonality.length > 0 && selectedTonality.length < 4){
       setIsGenerating(true);
       const response = await fetch('/api/generate', {

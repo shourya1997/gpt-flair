@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import './styles.css';
-import { Auth0Provider } from '@auth0/auth0-react';
-
+// import { Auth0Provider } from '@auth0/auth0-react';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 const App = ({ Component, pageProps }) => {
   return (
     <>
-    <Auth0Provider
+    <UserProvider
       domain={process.env.NEXT_PUBLIC_AUTH0_DOMAIN}
       clientId={process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID}
       authorizationParams={{ redirect_uri: process.env.NEXT_PUBLIC_AUTH0_REDIRECT_URI }}
@@ -21,7 +21,7 @@ const App = ({ Component, pageProps }) => {
       />
     </Head>
       <Component {...pageProps} />
-      </Auth0Provider>
+    </UserProvider>
     </>
   );
 };

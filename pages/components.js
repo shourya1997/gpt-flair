@@ -1,24 +1,27 @@
-import { useAuth0 } from '@auth0/auth0-react';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 const AuthComponent = () => {
-  const { isAuthenticated, user, loginWithRedirect, logout } = useAuth0();
+  const { user, error, isLoading } = useUser();
 
   // Render different content based on user authentication status
-  if (isAuthenticated) {
+  if (user) {
     return (
       <div>
         <p>Welcome, {user.name}!</p>
-        <button onClick={() => logout()}>Log Out</button>
+        <a href="/api/auth/logout">Logout</a>
       </div>
     );
   } else {
     return (
       <div>
         <p>You need to log in to use this app.</p>
-        <button onClick={() => loginWithRedirect()}>Log In</button>
+        <a href="/api/auth/login">Login</a>
       </div>
     );
   }
 };
 
 export default AuthComponent;
+
+
+
