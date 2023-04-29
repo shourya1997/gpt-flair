@@ -3,6 +3,7 @@ import classnames from 'classnames'
 import Image from 'next/image';
 import buildspaceLogo from '../assets/buildspace-logo.png';
 import AuthComponent from './components';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 const tonalityOptions = ['Witty', 'Persuasive', 'Desperate', 'Metaphorical', 'Conversational', 'Punchy', 'Sarcastic', 'Inspirational', 'Dramatic', 'Nostalgic', 'Urgent', 'Authoritative','Cynical', 'Humorous']
 
@@ -11,6 +12,17 @@ const Home = () => {
   const [selectedTonality, setTonality] = useState([])
   const [output, setOutput] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
+  const { user, isLoading } = useUser();
+
+  useEffect(() => {
+    if (!isLoading && !user) {
+      window.location.href = "/api/auth/login";
+    }
+  }, [isLoading, user]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   
   const onChange = (event) => {
     console.log(event.target.value)
@@ -23,7 +35,7 @@ const Home = () => {
     // check if currTone exist in selectedTonality
     const hasSelected = selectedTonality.includes(currTone)
     let currSelected = [...selectedTonality]
-
+  
     if(hasSelected) {
     // if currTone exist in selectedTonality
     currSelected = currSelected.filter(curr => curr !== currTone)  
@@ -67,22 +79,6 @@ const Home = () => {
     }
     
   }
-
-  useEffect(() => {
-    const keydownHandler = async (event) => {
-      if ((event.metaKey || event.ctrlKey) && event.code === 'Enter') {
-        event.preventDefault();
-        await generateAction();
-      }
-    };
-
-    window.addEventListener('keydown', keydownHandler);
-
-    return () => {
-      window.removeEventListener('keydown', keydownHandler);
-    };
-  }, [generateAction]);
-
 
   return (
     <div className="root">
